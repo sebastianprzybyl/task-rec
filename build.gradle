@@ -1,0 +1,37 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.test'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.codehaus.jackson:jackson-xc:1.9.12'
+	compileOnly 'org.projectlombok:lombok:1.18.10'
+	annotationProcessor 'org.projectlombok:lombok:1.18.10'
+
+	testCompileOnly 'org.projectlombok:lombok:1.18.10'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.10'
+	runtimeOnly 'org.hsqldb:hsqldb:2.4.0'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	
+}
+
+test {
+	useJUnitPlatform()
+}
